@@ -9,21 +9,30 @@
 /* Begin PBXBuildFile section */
 		1B37466C272C4B3A00C51BF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37466B272C4B3A00C51BF3 /* AppDelegate.swift */; };
 		1B37466E272C4B3A00C51BF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37466D272C4B3A00C51BF3 /* SceneDelegate.swift */; };
-		1B374670272C4B3A00C51BF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37466F272C4B3A00C51BF3 /* ViewController.swift */; };
 		1B374673272C4B3A00C51BF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B374671272C4B3A00C51BF3 /* Main.storyboard */; };
 		1B374675272C4B3E00C51BF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B374674272C4B3E00C51BF3 /* Assets.xcassets */; };
 		1B374678272C4B3E00C51BF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B374676272C4B3E00C51BF3 /* LaunchScreen.storyboard */; };
+		1B680B7B272D89C90026B0DB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680B7A272D89C90026B0DB /* LoginVC.swift */; };
+		1B680B7D272D9DFD0026B0DB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680B7C272D9DFD0026B0DB /* HomeVC.swift */; };
+		1B680B7F272DD70B0026B0DB /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680B7E272DD70B0026B0DB /* Bank.swift */; };
+		1B680B81272E6BE80026B0DB /* TransactionsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680B80272E6BE80026B0DB /* TransactionsTVC.swift */; };
+		1B680B83272E74800026B0DB /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680B82272E74800026B0DB /* RegisterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1B374668272C4B3A00C51BF3 /* Bank Account Manager UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bank Account Manager UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B37466B272C4B3A00C51BF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B37466D272C4B3A00C51BF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1B37466F272C4B3A00C51BF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1B374672272C4B3A00C51BF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B374674272C4B3E00C51BF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B374677272C4B3E00C51BF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B374679272C4B3F00C51BF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B680B7A272D89C90026B0DB /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		1B680B7C272D9DFD0026B0DB /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		1B680B7E272DD70B0026B0DB /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		1B680B80272E6BE80026B0DB /* TransactionsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTVC.swift; sourceTree = "<group>"; };
+		1B680B82272E74800026B0DB /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		1B680B85272F2B340026B0DB /* test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = test.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +65,28 @@
 		1B37466A272C4B3A00C51BF3 /* Bank Account Manager UI */ = {
 			isa = PBXGroup;
 			children = (
+				1B680B84272E88920026B0DB /* Model */,
 				1B37466B272C4B3A00C51BF3 /* AppDelegate.swift */,
 				1B37466D272C4B3A00C51BF3 /* SceneDelegate.swift */,
-				1B37466F272C4B3A00C51BF3 /* ViewController.swift */,
 				1B374671272C4B3A00C51BF3 /* Main.storyboard */,
+				1B680B82272E74800026B0DB /* RegisterVC.swift */,
+				1B680B80272E6BE80026B0DB /* TransactionsTVC.swift */,
+				1B680B7A272D89C90026B0DB /* LoginVC.swift */,
+				1B680B7C272D9DFD0026B0DB /* HomeVC.swift */,
 				1B374674272C4B3E00C51BF3 /* Assets.xcassets */,
 				1B374676272C4B3E00C51BF3 /* LaunchScreen.storyboard */,
 				1B374679272C4B3F00C51BF3 /* Info.plist */,
 			);
 			path = "Bank Account Manager UI";
+			sourceTree = "<group>";
+		};
+		1B680B84272E88920026B0DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1B680B7E272DD70B0026B0DB /* Bank.swift */,
+				1B680B85272F2B340026B0DB /* test.playground */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B374670272C4B3A00C51BF3 /* ViewController.swift in Sources */,
 				1B37466C272C4B3A00C51BF3 /* AppDelegate.swift in Sources */,
+				1B680B7D272D9DFD0026B0DB /* HomeVC.swift in Sources */,
+				1B680B81272E6BE80026B0DB /* TransactionsTVC.swift in Sources */,
+				1B680B7F272DD70B0026B0DB /* Bank.swift in Sources */,
+				1B680B83272E74800026B0DB /* RegisterVC.swift in Sources */,
 				1B37466E272C4B3A00C51BF3 /* SceneDelegate.swift in Sources */,
+				1B680B7B272D89C90026B0DB /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

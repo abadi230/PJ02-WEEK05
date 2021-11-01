@@ -15,25 +15,13 @@
         <!--Register-->
         <scene sceneID="I7q-WT-bgC">
             <objects>
-                <viewController title="Register" id="o2l-vr-F8y" sceneMemberID="viewController">
+                <viewController title="Register" id="o2l-vr-F8y" customClass="RegisterVC" customModule="Bank_Account_Manager_UI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A7O-8B-eIg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="👤 Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L7t-8P-wxV">
-                                <rect key="frame" x="59" y="174" width="297" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ht-Uc-knU">
                                 <rect key="frame" x="59" y="239" width="297" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dDD-lc-nUV">
-                                <rect key="frame" x="59" y="281" width="297" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -43,12 +31,39 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Register"/>
+                                <connections>
+                                    <action selector="onRegisterBtn:" destination="o2l-vr-F8y" eventType="touchUpInside" id="edT-6P-NgH"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dDD-lc-nUV">
+                                <rect key="frame" x="59" y="281" width="297" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="72j-EI-W6i">
+                                <rect key="frame" x="59" y="115" width="297" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="👤 Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L7t-8P-wxV">
+                                <rect key="frame" x="59" y="197" width="297" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="o19-FK-e6q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Register" image="person.crop.circle.fill.badge.plus" catalog="system" id="lKy-fc-w7J"/>
+                    <connections>
+                        <outlet property="confirmPassword" destination="dDD-lc-nUV" id="Z6j-HR-nC6"/>
+                        <outlet property="fullName" destination="72j-EI-W6i" id="Ymf-NL-7Dk"/>
+                        <outlet property="password" destination="8Ht-Uc-knU" id="ioH-Vc-LtM"/>
+                        <outlet property="userName" destination="L7t-8P-wxV" id="2Xn-bH-P3Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8aH-Ae-XmN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -212,29 +227,36 @@
         <scene sceneID="8hH-EL-gK1">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D7x-6g-eGT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController title="Home" id="FDs-QY-7LY" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeID" title="Home" id="FDs-QY-7LY" customClass="HomeVC" customModule="Bank_Account_Manager_UI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MkZ-C9-93I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gRz-Cn-qE0">
-                                <rect key="frame" x="20" y="98" width="374" height="285"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gRz-Cn-qE0">
+                                <rect key="frame" x="0.0" y="197" width="414" height="285"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="iZF-cH-tz8">
-                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iZF-cH-tz8" id="KNy-ZN-gJS">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6W-70-had">
-                                <rect key="frame" x="20" y="448" width="374" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Prince" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLA-Sm-SLH">
+                                <rect key="frame" x="20" y="132" width="374" height="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6W-70-had">
+                                <rect key="frame" x="20" y="561" width="374" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="pMf-ti-pGU"/>
+                                </constraints>
                                 <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" image="arrow.right.arrow.left.square.fill" catalog="system" title=" Pay &amp; transfer"/>
@@ -245,9 +267,21 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OVx-po-3ZM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OVx-po-3ZM" firstAttribute="trailing" secondItem="gRz-Cn-qE0" secondAttribute="trailing" id="4k8-7F-ZQB"/>
+                            <constraint firstItem="bLA-Sm-SLH" firstAttribute="top" secondItem="OVx-po-3ZM" secondAttribute="top" constant="44" id="Elp-eB-cD6"/>
+                            <constraint firstItem="OVx-po-3ZM" firstAttribute="trailing" secondItem="bLA-Sm-SLH" secondAttribute="trailing" constant="20" id="WYM-ub-d6b"/>
+                            <constraint firstItem="r6W-70-had" firstAttribute="top" secondItem="gRz-Cn-qE0" secondAttribute="bottom" constant="79" id="Xoe-mB-g1G"/>
+                            <constraint firstItem="gRz-Cn-qE0" firstAttribute="leading" secondItem="OVx-po-3ZM" secondAttribute="leading" id="p0b-RT-s9Z"/>
+                            <constraint firstItem="gRz-Cn-qE0" firstAttribute="top" secondItem="bLA-Sm-SLH" secondAttribute="bottom" constant="33" id="sd2-gf-yCA"/>
+                            <constraint firstItem="bLA-Sm-SLH" firstAttribute="leading" secondItem="OVx-po-3ZM" secondAttribute="leading" constant="20" id="tEv-Ww-d9A"/>
+                            <constraint firstItem="OVx-po-3ZM" firstAttribute="trailing" secondItem="r6W-70-had" secondAttribute="trailing" constant="20" id="uUS-Gv-MHj"/>
+                            <constraint firstItem="r6W-70-had" firstAttribute="leading" secondItem="OVx-po-3ZM" secondAttribute="leading" constant="20" id="y77-Ok-bq0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="WSx-I6-uYZ"/>
                     <connections>
+                        <outlet property="lblWelcome" destination="bLA-Sm-SLH" id="DHB-A3-Ryc"/>
                         <segue destination="XGi-XQ-LLe" kind="show" id="RPP-5b-Bnq"/>
                     </connections>
                 </viewController>
@@ -328,7 +362,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="rI0-fE-7xY">
             <objects>
-                <tabBarController id="OQG-Wx-1Vh" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="SecondTabID" id="OQG-Wx-1Vh" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="sKh-jz-CBW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
                     <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="centered" id="9Qo-Yz-n3G">
@@ -339,7 +373,6 @@
                     <connections>
                         <segue destination="mQe-B6-H3A" kind="relationship" relationship="viewControllers" id="KZ6-ex-rOv"/>
                         <segue destination="3W2-mV-yBx" kind="relationship" relationship="viewControllers" id="5W0-Ou-0f0"/>
-                        <segue destination="SDM-Vf-CTQ" kind="relationship" relationship="viewControllers" id="3KX-Er-vC2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwk-OW-6Jy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -349,7 +382,7 @@
         <!--Login-->
         <scene sceneID="8KE-Og-lR0">
             <objects>
-                <viewController title="Login" id="SDM-Vf-CTQ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginID" title="Login" id="SDM-Vf-CTQ" customClass="LoginVC" customModule="Bank_Account_Manager_UI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5yo-6o-ZQ4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -363,13 +396,13 @@
                                 <rect key="frame" x="50" y="366" width="306" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Io-kY-UPg">
                                 <rect key="frame" x="50" y="431" width="306" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wmV-ki-UvB">
                                 <rect key="frame" x="322" y="499" width="49" height="31"/>
@@ -387,6 +420,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
+                                <connections>
+                                    <action selector="btnLogin:" destination="SDM-Vf-CTQ" eventType="touchUpInside" id="4Ml-JC-VK6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b99-vX-iaI"/>
@@ -394,6 +430,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Login" image="person.fill" catalog="system" id="7Zn-u0-BQW"/>
                     <navigationItem key="navigationItem" title="Login" id="Lxj-64-Iiu"/>
+                    <connections>
+                        <outlet property="textUserName" destination="tY7-rJ-kyh" id="HSM-G7-KZM"/>
+                        <outlet property="txtPassword" destination="0Io-kY-UPg" id="XEU-nz-K7Y"/>
+                        <segue destination="OQG-Wx-1Vh" kind="show" identifier="loginSegue" id="L0x-u6-ysd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bli-49-MTS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -457,8 +498,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Zi3-MG-t61"/>
-        <segue reference="GbW-ME-5sn"/>
+        <segue reference="5W0-Ou-0f0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="applelogo" catalog="system" width="103" height="128"/>
