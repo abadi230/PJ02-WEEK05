@@ -125,11 +125,22 @@ class Customer {
         accounts.insert(movedAccont, at: toIndex)
     }
     func getTotalAmounts() -> Double {// print total amount
-        let numAccount:Double
+        var numAccount:Double
         if accounts.count > 1 {
             numAccount = accounts.map{$0.balance}.reduce(0, {$0 + $1})
         } else { numAccount = accounts[0].balance}
-        return numAccount
+        return numAccount 
+    }
+    func isAccountsEmpty() -> Bool{
+        return self.accounts.isEmpty
+    }
+    func isTransactionsEmpty() -> Bool{
+        var result = true
+        if self.accounts.count > 0 {
+            let numTrans = accounts.filter{ $0.transactions.count > 0 }
+            if numTrans.count > 0 {result = false}
+        }
+        return result
     }
     
 }
@@ -181,4 +192,11 @@ struct Transaction {
     var amount : Double
     var to : String
     var date : Date
+    
+    func date_format(date: Date ) -> String {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "dd/MM/yyyy HH:mm"
+        
+        return dateFormatterGet.string(from: date)
+    }
 }

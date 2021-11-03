@@ -44,7 +44,7 @@ class TransferVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         self.dropDown.isHidden = true
         
         selectedAccountId = account.id
-        print(selectedAccountId)
+        
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == self.txtBox {
@@ -63,7 +63,7 @@ class TransferVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
                 let transaction = Transaction(amount: Double(amount)!, to: to, date: Date())
                 
                 account.withdraw(transaction: transaction)
-                print(account)
+                
                 navigationController?.popViewController(animated: true)
             }else{
                 toastLbl.text = "Balance is insufficient"
@@ -77,7 +77,6 @@ class TransferVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     
     
     func toast(message: UILabel){
-        // "frame" x="20" y="86" width="374" height="21"
         message.textColor = .red
         UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
             message.alpha = 0.0

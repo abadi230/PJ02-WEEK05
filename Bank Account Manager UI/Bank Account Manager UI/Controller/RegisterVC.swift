@@ -18,7 +18,8 @@ class RegisterVC: UIViewController {
     
     var bank : Bank!
     var delegate: RegisterDelegate!
-//    var userDelegate: CostomerProfile!
+    let defaults = UserDefaults.standard
+
     
     @IBOutlet weak var fullName: UITextField!
     @IBOutlet weak var userName: UITextField!
@@ -30,11 +31,16 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        let userDefault = defaults.string(forKey: "userName")
+        let passDefault = defaults.string(forKey: "password")
+        
+        userName.text = userDefault
+        confirmPassword.text = passDefault
     }
     
     @IBAction func onRegisterBtn(_ sender: Any) {
-        
-        
+        defaults.set(userName.text, forKey: "userName")
+        defaults.set(confirmPassword.text, forKey: "password")
         let newCustomer = Customer (
             fullName: fullName.text!,
             userName: userName.text!,
@@ -59,12 +65,6 @@ class RegisterVC: UIViewController {
         
         // set function in protocol to collect data
         delegate.RegisterUser(userName: userName.text!, password: confirmPassword.text!)
-        
-        // store data in userDelegate
-//        print(newCustomer.fullName)
-//        userDelegate.profile(customer: newCustomer , customerId: newCustomer.id)
-        
-        
     }
     
     

@@ -27,6 +27,7 @@ class LoginVC: UIViewController, RegisterDelegate {
     // declare instance of Customer
     var profile : Customer!
     
+    
     @IBOutlet weak var textUserName: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var messageLbl: UILabel!
@@ -41,11 +42,10 @@ class LoginVC: UIViewController, RegisterDelegate {
         // get data from RegisterVC by delegate
         let registerVC = tabBarController?.viewControllers?[1] as! RegisterVC
         registerVC.delegate = self
-
-                
+        
     }
     @IBAction func btnLogin(_ sender: UIButton) {
-                
+        
         // check username and password
         if bank.check(userName: textUserName.text!, password: txtPassword.text!){
             print("true")

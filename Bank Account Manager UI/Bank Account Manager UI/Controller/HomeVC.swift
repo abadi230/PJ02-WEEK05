@@ -23,10 +23,10 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
     }
     
 //    var delegate : CostomerProfile!
-    var bank = Bank()
+    
     var customer : Customer!
     var name = ""
-    
+    var selectedAccount : Account!
     @IBOutlet weak var lblWelcome: UILabel!
     
     @IBOutlet weak var accountTableView: UITableView!
@@ -86,7 +86,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let EditVC = storyboard?.instantiateViewController(withIdentifier: "editID") as! EditAccountVC
-        let selectedAccount = customer.accounts[indexPath.row]
+        selectedAccount = customer.accounts[indexPath.row]
         EditVC.name = selectedAccount.name
         EditVC.currentIndex = indexPath.row
         EditVC.delegate = self
@@ -131,19 +131,29 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
     
     
     @IBAction func payAndTransferBtn(_ sender: UIButton) {
-        if customer.accounts.count != 0 {
-            
+        print(customer.accounts.isEmpty)
+        if !customer.isAccountsEmpty() {
+
             performSegue(withIdentifier: "Pay&TransferID", sender: self)
+            
         } else {
             Toastlbl.text = " Add Account first "
             toast(message: Toastlbl)
+            
         }
         
+    }
+    @IBAction func transactionsBtn(_ sender: UIButton) {
+        if !customer.isTransactionsEmpty() {
+            performSegue(withIdentifier: "TransactionTVC", sender: self)
+        }else{
+            Toastlbl.text = "Transactions Unavaliable"
+            toast(message: Toastlbl)
+        }
     }
     
     
     func toast(message: UILabel){
-        // "frame" x="20" y="86" width="374" height="21"
         message.textColor = .red
         UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
             message.alpha = 0.0
@@ -156,12 +166,12 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Pay&TransferID"{
-
             let paymentVC = segue.destination as! PayAndTransferVC
-
-//            paymentVC.balance = customer.getTotalAmounts()
             paymentVC.customer = customer
-            
+        }
+        if segue.identifier == "TransactionTVC" {
+            let transTVC = segue.destination as! TransactionsTVC
+            transTVC.account = selectedAccount
         }
     }
     
