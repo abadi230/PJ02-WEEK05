@@ -10,11 +10,15 @@ import UIKit
 protocol RegisterDelegate {
     func RegisterUser(userName: String, password: String)
 }
+protocol CostomerProfile { //
+    func profile(customer: Customer, customerId: String)
+}
 
 class RegisterVC: UIViewController {
     
     var bank : Bank!
     var delegate: RegisterDelegate!
+//    var userDelegate: CostomerProfile!
     
     @IBOutlet weak var fullName: UITextField!
     @IBOutlet weak var userName: UITextField!
@@ -31,7 +35,7 @@ class RegisterVC: UIViewController {
     @IBAction func onRegisterBtn(_ sender: Any) {
         
         
-        let newCustomer = Customer(
+        let newCustomer = Customer (
             fullName: fullName.text!,
             userName: userName.text!,
             password: confirmPassword.text!
@@ -41,6 +45,9 @@ class RegisterVC: UIViewController {
             
             bank.setPasswordAndUserName(user: newCustomer, password: confirmPassword.text!, userName: userName.text!)
             bank.createCustomer(newCustomer: newCustomer)
+            
+            
+            
             message.text = "Password Accepted ✅"
             message.textColor = .green
             toast(message: message)
@@ -52,6 +59,11 @@ class RegisterVC: UIViewController {
         
         // set function in protocol to collect data
         delegate.RegisterUser(userName: userName.text!, password: confirmPassword.text!)
+        
+        // store data in userDelegate
+//        print(newCustomer.fullName)
+//        userDelegate.profile(customer: newCustomer , customerId: newCustomer.id)
+        
         
     }
     

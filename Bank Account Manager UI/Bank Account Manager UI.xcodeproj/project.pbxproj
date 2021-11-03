@@ -19,6 +19,9 @@
 		1B680B83272E74800026B0DB /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680B82272E74800026B0DB /* RegisterVC.swift */; };
 		1B680B8927300B110026B0DB /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680B8827300B110026B0DB /* AccountCell.swift */; };
 		1B680B8B273117070026B0DB /* EditAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680B8A273117070026B0DB /* EditAccountVC.swift */; };
+		1B680B8E2731D16F0026B0DB /* Pay&Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680B8D2731D16F0026B0DB /* Pay&Transfer.swift */; };
+		1B680B902731E89E0026B0DB /* AddMoneyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680B8F2731E89E0026B0DB /* AddMoneyVC.swift */; };
+		1B680B922731F0510026B0DB /* TransferVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680B912731F0510026B0DB /* TransferVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		1B680B85272F2B340026B0DB /* test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = test.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1B680B8827300B110026B0DB /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		1B680B8A273117070026B0DB /* EditAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountVC.swift; sourceTree = "<group>"; };
+		1B680B8D2731D16F0026B0DB /* Pay&Transfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pay&Transfer.swift"; sourceTree = "<group>"; };
+		1B680B8F2731E89E0026B0DB /* AddMoneyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoneyVC.swift; sourceTree = "<group>"; };
+		1B680B912731F0510026B0DB /* TransferVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,9 @@
 		1B680B8C2731CDB50026B0DB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1B680B912731F0510026B0DB /* TransferVC.swift */,
+				1B680B8F2731E89E0026B0DB /* AddMoneyVC.swift */,
+				1B680B8D2731D16F0026B0DB /* Pay&Transfer.swift */,
 				1B680B8827300B110026B0DB /* AccountCell.swift */,
 				1B680B82272E74800026B0DB /* RegisterVC.swift */,
 				1B680B80272E6BE80026B0DB /* TransactionsTVC.swift */,
@@ -175,14 +184,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B37466C272C4B3A00C51BF3 /* AppDelegate.swift in Sources */,
+				1B680B922731F0510026B0DB /* TransferVC.swift in Sources */,
 				1B680B8B273117070026B0DB /* EditAccountVC.swift in Sources */,
 				1B680B8927300B110026B0DB /* AccountCell.swift in Sources */,
 				1B680B7D272D9DFD0026B0DB /* HomeVC.swift in Sources */,
 				1B680B81272E6BE80026B0DB /* TransactionsTVC.swift in Sources */,
 				1B680B7F272DD70B0026B0DB /* Bank.swift in Sources */,
+				1B680B8E2731D16F0026B0DB /* Pay&Transfer.swift in Sources */,
 				1B680B83272E74800026B0DB /* RegisterVC.swift in Sources */,
 				1B37466E272C4B3A00C51BF3 /* SceneDelegate.swift in Sources */,
 				1B680B7B272D89C90026B0DB /* LoginVC.swift in Sources */,
+				1B680B902731E89E0026B0DB /* AddMoneyVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

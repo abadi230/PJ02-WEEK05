@@ -8,14 +8,13 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Register-->
         <scene sceneID="I7q-WT-bgC">
             <objects>
-                <viewController title="Register" id="o2l-vr-F8y" customClass="RegisterVC" customModule="Bank_Account_Manager_UI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="regID" title="Register" id="o2l-vr-F8y" customClass="RegisterVC" customModule="Bank_Account_Manager_UI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A7O-8B-eIg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,12 +103,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8aH-Ae-XmN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876.81159420289862" y="241.74107142857142"/>
+            <point key="canvasLocation" x="2701" y="193"/>
         </scene>
         <!--Pay & transfer-->
         <scene sceneID="hVB-Jg-Yyf">
             <objects>
-                <viewController title="Pay &amp; transfer" id="3W2-mV-yBx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="paymentID" title="Pay &amp; transfer" id="3W2-mV-yBx" customClass="PayAndTransferVC" customModule="Bank_Account_Manager_UI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hy6-hj-I6G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,7 +119,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="+ Add money"/>
                                 <connections>
-                                    <segue destination="vBf-Po-kQD" kind="show" id="aeK-Yr-FIw"/>
+                                    <segue destination="vBf-Po-kQD" kind="show" identifier="dipositID" id="aeK-Yr-FIw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqh-yH-fRI">
@@ -129,20 +128,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="↗️ Send"/>
                                 <connections>
-                                    <segue destination="by3-Le-DCl" kind="show" id="PJj-WX-5y5"/>
+                                    <segue destination="by3-Le-DCl" kind="show" identifier="transferID" id="PJj-WX-5y5"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSU-S3-6ai">
-                                <rect key="frame" x="170" y="150" width="84" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <menu key="menu" id="TlH-6c-Ptd">
-                                    <children>
-                                        <command title="account 1" id="uCf-1B-pBq"/>
-                                        <command title="account 2" discoverabilityTitle="hood" id="wK4-pI-W2L"/>
-                                    </children>
-                                </menu>
-                                <state key="normal" title="SR 100"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="All accounts. Total balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RW7-CG-vG0">
                                 <rect key="frame" x="111" y="200" width="203" height="21"/>
@@ -151,21 +138,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FN2-wb-fOM">
+                                <rect key="frame" x="50" y="120" width="314" height="33"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XjT-jR-ZIH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FN2-wb-fOM" firstAttribute="top" secondItem="XjT-jR-ZIH" secondAttribute="top" constant="32" id="5rn-wz-qIl"/>
+                            <constraint firstItem="XjT-jR-ZIH" firstAttribute="trailing" secondItem="FN2-wb-fOM" secondAttribute="trailing" constant="50" id="syo-uZ-HwI"/>
+                            <constraint firstItem="FN2-wb-fOM" firstAttribute="leading" secondItem="XjT-jR-ZIH" secondAttribute="leading" constant="50" id="vSW-IV-fEB"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pay &amp; transfer" image="arrow.right.arrow.left" catalog="system" id="ZCW-73-f2U"/>
                     <navigationItem key="navigationItem" title="Pay &amp; transfer" id="iiC-Eh-f8m"/>
+                    <connections>
+                        <outlet property="balanceLbl" destination="FN2-wb-fOM" id="Dbf-LP-aPL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="stl-eh-G3H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4539.130434782609" y="212.94642857142856"/>
+            <point key="canvasLocation" x="4539" y="291"/>
         </scene>
         <!--Add money-->
         <scene sceneID="BM7-MM-CEP">
             <objects>
-                <viewController title="Add money" id="vBf-Po-kQD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="transferID" title="Add money" id="vBf-Po-kQD" customClass="AddMoneyVC" customModule="Bank_Account_Manager_UI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5k8-k7-oWe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,6 +212,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Money" id="IYJ-cW-Oa7"/>
+                    <connections>
+                        <outlet property="balanceLbl" destination="fTY-RM-AKy" id="jhl-ee-4V0"/>
+                        <outlet property="txtFieldAmount" destination="gCr-03-om9" id="agx-QZ-KTR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ork-jo-E6W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -219,7 +224,7 @@
         <!--Send money-->
         <scene sceneID="zJX-k4-665">
             <objects>
-                <viewController title="Send money" id="by3-Le-DCl" sceneMemberID="viewController">
+                <viewController title="Send money" id="by3-Le-DCl" customClass="TransferVC" customModule="Bank_Account_Manager_UI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QGq-eP-EDX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,7 +380,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" image="arrow.right.arrow.left.square.fill" catalog="system" title=" Pay &amp; transfer"/>
                                 <connections>
-                                    <segue destination="3W2-mV-yBx" kind="show" id="GbW-ME-5sn"/>
+                                    <action selector="payAndTransferBtn:" destination="FDs-QY-7LY" eventType="touchUpInside" id="aLv-Dv-fDq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -415,6 +420,7 @@
                         <outlet property="accountTableView" destination="gRz-Cn-qE0" id="HFL-M5-4up"/>
                         <outlet property="lblWelcome" destination="bLA-Sm-SLH" id="DHB-A3-Ryc"/>
                         <segue destination="XGi-XQ-LLe" kind="show" id="RPP-5b-Bnq"/>
+                        <segue destination="3W2-mV-yBx" kind="show" identifier="transferID" id="yPX-Aw-Ekd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D7x-6g-eGT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -491,26 +497,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xsm-Xw-N1R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6076.811594202899" y="-455.35714285714283"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="rI0-fE-7xY">
-            <objects>
-                <tabBarController storyboardIdentifier="SecondTabID" id="OQG-Wx-1Vh" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="sKh-jz-CBW"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
-                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="centered" id="9Qo-Yz-n3G">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="mQe-B6-H3A" kind="relationship" relationship="viewControllers" id="KZ6-ex-rOv"/>
-                        <segue destination="3W2-mV-yBx" kind="relationship" relationship="viewControllers" id="5W0-Ou-0f0"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gwk-OW-6Jy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2742.0289855072465" y="-151.33928571428569"/>
         </scene>
         <!--Login-->
         <scene sceneID="8KE-Og-lR0">
@@ -599,12 +585,12 @@
                         <outlet property="messageLbl" destination="Nve-Qn-SSf" id="U6i-2r-A4q"/>
                         <outlet property="textUserName" destination="tY7-rJ-kyh" id="HSM-G7-KZM"/>
                         <outlet property="txtPassword" destination="0Io-kY-UPg" id="XEU-nz-K7Y"/>
-                        <segue destination="OQG-Wx-1Vh" kind="show" identifier="loginSegue" id="L0x-u6-ysd"/>
+                        <segue destination="FDs-QY-7LY" kind="show" identifier="loginSegue" id="F4o-DS-sYY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bli-49-MTS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786.9565217391305" y="-406.47321428571428"/>
+            <point key="canvasLocation" x="3612" y="-455"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dZ1-QF-ndz">
@@ -622,26 +608,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B7m-jl-HJY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13" y="-102"/>
-        </scene>
-        <!--home-->
-        <scene sceneID="gai-ac-rO8">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mQe-B6-H3A" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="home" image="house.fill" catalog="system" id="5E0-2S-ejk"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="05T-Zg-vzw">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="FDs-QY-7LY" kind="relationship" relationship="rootViewController" id="yB0-5a-34N"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HJv-WE-ZVJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3628.985507246377" y="-455.35714285714283"/>
+            <point key="canvasLocation" x="1812" y="-151"/>
         </scene>
         <!--NavLogin-->
         <scene sceneID="Ld5-QI-LYR">
@@ -660,17 +627,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qgh-Y1-EdZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876.81159420289862" y="-406.47321428571428"/>
+            <point key="canvasLocation" x="2701" y="-455"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="GbW-ME-5sn"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="applelogo" catalog="system" width="103" height="128"/>
         <image name="arrow.right.arrow.left" catalog="system" width="119" height="128"/>
         <image name="arrow.right.arrow.left.square.fill" catalog="system" width="128" height="114"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.crop.circle.fill.badge.plus" catalog="system" width="128" height="113"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>

@@ -16,6 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        
         guard let _ = (scene as? UIWindowScene) else { return }
         let bank = Bank()
+        //let customer = Customer(
+        
         let tabBar = window?.rootViewController as! UITabBarController
         
         let loginNav = tabBar.viewControllers?[0] as! UINavigationController
@@ -24,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let registerVC = tabBar.viewControllers?[1] as! RegisterVC
         registerVC.bank = bank
+        
         
         
     }

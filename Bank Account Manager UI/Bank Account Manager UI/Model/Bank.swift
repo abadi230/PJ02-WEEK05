@@ -92,39 +92,7 @@ class Customer {
         self.userName = userName
         self.password = password
     }
-    
-    //    func setPasswordAndUserName(password: String, userName: String) {
-    //        if isValidPassword(password: password) && isValidUserName(userName: userName){
-    //
-    //            self.password = password
-    //            self.userName = userName
-    //
-    ////            return "Password is Accepted"
-    //
-    //        } else {
-    ////            return "Password Not Accepted. Password must be more than 6 characters, with at least one capital, numeric or special character "}
-    //    }
-    //    }
-    //     func isValidPassword(password: String) -> Bool{
-    //        // regex : Password must be more than 6 characters, with at least one capital, numeric or special character
-    //        let passwordRegEx = "(?:(?:(?=.*?[0-9])(?=.*?[-!@#$%&*ˆ+=_])|(?:(?=.*?[0-9])|(?=.*?[A-Z])|(?=.*?[-!@#$%&*ˆ+=_])))|(?=.*?[a-z])(?=.*?[0-9])(?=.*?[-!@#$%&*ˆ+=_]))[A-Za-z0-9-!@#$%&*ˆ+=_]{6,15}"
-    //        let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
-    //        return passwordTest.evaluate(with: password)
-    //    }
-    //
-    //     func isValidUserName(userName: String) -> Bool{
-    //        var result = true
-    //        for user in super.users {
-    //            if user.userName == userName{
-    //                result = false
-    //            }
-    //        }
-    //        return result
-    //    }
-    //
-    //     func checkUserNameAndPassword(userName: String, password: String) -> Bool{
-    //        return self.password == password && self.userName == userName
-    //    }
+   
     
     func addAccount(newAccount: Account) -> Account{
         self.accounts.append(newAccount)
@@ -152,6 +120,13 @@ class Customer {
         // Insert item in array at new location
         accounts.insert(movedAccont, at: toIndex)
     }
+    func getTotalAmounts() -> Double {// print total amount
+        let numAccount:Double
+        if accounts.count > 1 {
+            numAccount = accounts.map{$0.balance}.reduce(0, {$0 + $1})
+        } else { numAccount = accounts[0].balance}
+        return numAccount
+    }
     
 }
 
@@ -175,6 +150,15 @@ class Account : Equatable {
         self.id = UUID().uuidString
         self.name = name
         self.balance = balance
+    }
+    func addTransaction(newTrans: Transaction){
+        transactions.append(newTrans)
+    }
+    
+    func deposit(transaction: Transaction) { // add money to amount
+        addTransaction(newTrans: transaction)
+        balance += transaction.amount
+        print("Total amount in your \(name) account is \(balance)")
     }
     
 }

@@ -41,10 +41,11 @@ class LoginVC: UIViewController, RegisterDelegate {
         // get data from RegisterVC by delegate
         let registerVC = tabBarController?.viewControllers?[1] as! RegisterVC
         registerVC.delegate = self
-        
+
+                
     }
     @IBAction func btnLogin(_ sender: UIButton) {
-        
+                
         // check username and password
         if bank.check(userName: textUserName.text!, password: txtPassword.text!){
             print("true")
@@ -91,9 +92,8 @@ class LoginVC: UIViewController, RegisterDelegate {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "loginSegue") {
-            let homeTabBarVC = segue.destination as! UITabBarController
-            let homeNav = homeTabBarVC.viewControllers?[0] as! UINavigationController
-            let homeVC = homeNav.children[0] as! HomeVC
+//
+            let homeVC = segue.destination as! HomeVC
             homeVC.customer = self.profile
         }
     }

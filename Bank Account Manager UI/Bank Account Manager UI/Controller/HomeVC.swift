@@ -6,16 +6,24 @@
 //
 
 import UIKit
-
+/*
+ customer new in protocol is = nil
+ should collect customer from login or register
+ */
+//protocol CostomerProfile { //
+//    func profile(customer: Customer, customerId: String)
+//}
 class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UpdateDelegate {
     func updateName(name: String, index: Int) {
         print(name)
 //        customer.updateAccount(name)
         customer.accounts[index].name = name
         accountTableView.reloadData()
+        
     }
     
-    
+//    var delegate : CostomerProfile!
+    var bank = Bank()
     var customer : Customer!
     var name = ""
     
@@ -31,6 +39,8 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
        
         accountTableView.delegate = self
         accountTableView.dataSource = self
+        
+//        delegate.profile(customer: customer, customerId: customer.id)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,7 +48,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 120
     }
     
     
@@ -73,10 +83,13 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let EditVC = storyboard?.instantiateViewController(withIdentifier: "editID") as! EditAccountVC
-        EditVC.name = customer.accounts[indexPath.row].name
+        let selectedAccount = customer.accounts[indexPath.row]
+        EditVC.name = selectedAccount.name
         EditVC.currentIndex = indexPath.row
         EditVC.delegate = self
         navigationController?.pushViewController(EditVC, animated: true)
+        
+        
     }
     
 
@@ -86,7 +99,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
         
         
         // Create a new Account and add it to customer.accounts
-        let newAccount = customer.addAccount(newAccount: Account(name: "Islamic Account", balance: 0))
+        let newAccount = customer.addAccount(newAccount: Account(name: "Islamic Account", balance: 50))
         // figure out where that account in the array
         if let index = customer.accounts.firstIndex(of: newAccount) {
             // insert the new row of Account inside table
@@ -94,6 +107,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
         
             accountTableView.insertRows(at: [indexPath], with: .automatic)
         }
+        
     }
     
     @IBAction func ToggleEditingMode(_ sender: UIButton ){
@@ -109,15 +123,28 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
             // Enter editing mode
             setEditing(true, animated: true)
         }
+        
     }
-    /*
+    
+    
+    @IBAction func payAndTransferBtn(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "transferID", sender: self)
+        
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        if segue.identifier == "transferID"{
 
+            let paymentVC = segue.destination as! PayAndTransferVC
+
+//            paymentVC.balance = customer.getTotalAmounts()
+            paymentVC.customer = customer
+            
+        }
+    }
+    
 }
