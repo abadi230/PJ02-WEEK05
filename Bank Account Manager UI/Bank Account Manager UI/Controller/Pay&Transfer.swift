@@ -31,5 +31,10 @@ class PayAndTransferVC: UIViewController {
             let depositVC = segue.destination as! AddMoneyVC
             depositVC.customer = customer
         }
+        
+        if segue.identifier == "transferID" {
+            let transferVC = segue.destination as! TransferVC
+            transferVC.customer = customer
+        }
     }
 }

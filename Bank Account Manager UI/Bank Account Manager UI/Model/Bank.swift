@@ -155,6 +155,10 @@ class Account : Equatable {
         self.name = name
         self.balance = balance
     }
+    
+     func checkPalance(amount: Double) -> Bool{
+        return self.balance > amount
+    }
     func addTransaction(newTrans: Transaction){
         transactions.append(newTrans)
     }
@@ -165,10 +169,16 @@ class Account : Equatable {
         print("Total amount in your \(name) account is \(balance)")
     }
     
+    func withdraw(transaction: Transaction){
+        addTransaction(newTrans: transaction)
+        self.balance -= transaction.amount
+    }
+    
     
 }
 
 struct Transaction {
     var amount : Double
+    var to : String
     var date : Date
 }

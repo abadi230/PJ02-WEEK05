@@ -11,7 +11,11 @@ class AddMoneyVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
     var customer : Customer!
     var selectedAccountId: String?
+    
     @IBOutlet weak var txtFieldAmount: UITextField!
+    @IBOutlet weak var txtFieldFrom: UITextField!
+    
+    
     @IBOutlet weak var balanceLbl: UILabel!
     
     @IBOutlet weak var accountTableView: UITableView!
@@ -60,10 +64,12 @@ class AddMoneyVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }else {
             
             let account = customer.findAccount(id: selectedAccountId!)
-            let transation = Transaction(amount: Double(txtFieldAmount.text!)!, date: Date())
+            let transation = Transaction(amount: Double(txtFieldAmount.text!)!, to: txtFieldFrom.text!, date: Date())
             account.deposit(transaction: transation)
             accountTableView.reloadData()
             txtFieldAmount.text = ""
+            txtFieldFrom.text = ""
+            navigationController?.popViewController(animated: true)
         }
     }
     

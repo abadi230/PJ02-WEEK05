@@ -133,7 +133,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
     @IBAction func payAndTransferBtn(_ sender: UIButton) {
         if customer.accounts.count != 0 {
             
-            performSegue(withIdentifier: "transferID", sender: self)
+            performSegue(withIdentifier: "Pay&TransferID", sender: self)
         } else {
             Toastlbl.text = " Add Account first "
             toast(message: Toastlbl)
@@ -155,7 +155,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "transferID"{
+        if segue.identifier == "Pay&TransferID"{
 
             let paymentVC = segue.destination as! PayAndTransferVC
 
