@@ -15,6 +15,10 @@ class PayAndTransferVC: UIViewController {
     
     @IBOutlet weak var balanceLbl: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        balanceLbl.text = "SAR \(customer.getTotalAmounts())"
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

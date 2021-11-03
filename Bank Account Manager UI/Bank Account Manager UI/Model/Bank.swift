@@ -110,6 +110,10 @@ class Customer {
         }
     }
     
+    func findAccount(id: String) -> Account{
+        return self.accounts.filter{ $0.id == id}.first!
+    }
+    
     func moveAccount(from fromIndex: Int, to toIndex: Int){
         if fromIndex == toIndex { return }
         // Get reference to object being moved so you can reinsert it
@@ -160,6 +164,7 @@ class Account : Equatable {
         balance += transaction.amount
         print("Total amount in your \(name) account is \(balance)")
     }
+    
     
 }
 

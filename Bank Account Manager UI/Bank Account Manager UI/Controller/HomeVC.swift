@@ -14,9 +14,9 @@ import UIKit
 //    func profile(customer: Customer, customerId: String)
 //}
 class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UpdateDelegate {
+    
     func updateName(name: String, index: Int) {
-        print(name)
-//        customer.updateAccount(name)
+        
         customer.accounts[index].name = name
         accountTableView.reloadData()
         
@@ -31,7 +31,11 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
     
     @IBOutlet weak var accountTableView: UITableView!
     
+    @IBOutlet weak var Toastlbl: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        accountTableView.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,7 +44,6 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
         accountTableView.delegate = self
         accountTableView.dataSource = self
         
-//        delegate.profile(customer: customer, customerId: customer.id)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -128,11 +131,26 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
     
     
     @IBAction func payAndTransferBtn(_ sender: UIButton) {
-        
-        performSegue(withIdentifier: "transferID", sender: self)
+        if customer.accounts.count != 0 {
+            
+            performSegue(withIdentifier: "transferID", sender: self)
+        } else {
+            Toastlbl.text = " Add Account first "
+            toast(message: Toastlbl)
+        }
         
     }
     
+    
+    func toast(message: UILabel){
+        // "frame" x="20" y="86" width="374" height="21"
+        message.textColor = .red
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            message.alpha = 0.0
+        }, completion: {(isCompleted) in
+            message.isHidden = true
+        })
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -148,3 +166,4 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Upda
     }
     
 }
+
