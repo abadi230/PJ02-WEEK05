@@ -47,16 +47,15 @@ class RegisterVC: UIViewController {
             password: confirmPassword.text!
         )
         
-        if bank.isValidPassword(password: confirmPassword.text!) && bank.isValidUserName(userName: userName.text!){
+        if bank.isValidPassword(password: confirmPassword.text!) && bank.isValidUserName(userName: userName.text!) && fullName.text != nil && password.text == confirmPassword.text{
             
             bank.setPasswordAndUserName(user: newCustomer, password: confirmPassword.text!, userName: userName.text!)
             bank.createCustomer(newCustomer: newCustomer)
             
-            
-            
             message.text = "Password Accepted ✅"
             message.textColor = .green
             toast(message: message)
+            
         } else {
             message.text = "Password Not Accepted ❌"
             message.textColor = .red

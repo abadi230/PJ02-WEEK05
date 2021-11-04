@@ -32,13 +32,14 @@ class LoginVC: UIViewController, RegisterDelegate {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var messageLbl: UILabel!
     
+    @IBOutlet weak var logoImg: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textUserName.text = userName
         txtPassword.text = password
-        
+        logoImg.image = UIImage(named: "lloydsLogo")
         // get data from RegisterVC by delegate
         let registerVC = tabBarController?.viewControllers?[1] as! RegisterVC
         registerVC.delegate = self

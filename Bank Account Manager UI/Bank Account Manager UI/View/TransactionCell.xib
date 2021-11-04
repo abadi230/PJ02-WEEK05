@@ -24,12 +24,15 @@
                             <constraint firstAttribute="height" constant="41" id="t0E-1N-kG1"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-10.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chd-rd-YoW">
-                        <rect key="frame" x="362.5" y="17" width="49.5" height="41"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="333.5" y="17" width="78.5" height="41"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="78.5" id="RId-Fz-rfe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -41,7 +44,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="chd-rd-YoW" firstAttribute="leading" secondItem="0W9-eZ-vqr" secondAttribute="trailing" constant="46.5" id="3bU-GU-vXG"/>
+                    <constraint firstItem="chd-rd-YoW" firstAttribute="leading" secondItem="0W9-eZ-vqr" secondAttribute="trailing" constant="17.5" id="3bU-GU-vXG"/>
                     <constraint firstItem="0W9-eZ-vqr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="E3x-R5-n92"/>
                     <constraint firstItem="chd-rd-YoW" firstAttribute="centerY" secondItem="0W9-eZ-vqr" secondAttribute="centerY" id="SUc-8d-LeK"/>
                     <constraint firstAttribute="bottom" secondItem="bbJ-Vy-4Op" secondAttribute="bottom" constant="6" id="Vzh-GT-w4z"/>
